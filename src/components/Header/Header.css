@@ -1,0 +1,21 @@
+.header-logo img {
+  width: 10rem;
+  color: white;
+}
+.background-image {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background-size: cover;
+  max-width: 100%;
+}
+.item {
+  font-size: 1.2rem;
+  margin-left: 4rem;
+  font-weight: 700;
+}
+.item:hover {
+  background-color: rgba(20, 55, 121, 0.541) !important;
+  color: white !important;
+  border-radius: 10px;
+}

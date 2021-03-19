@@ -1,0 +1,29 @@
+.booking-container {
+  display: flex;
+}
+.form-area {
+  border-radius: 10px !important;
+  background-color: rgba(255, 255, 255, 0.295);
+  font-weight: 700;
+  padding: 2rem;
+  margin-top: 8rem;
+}
+.result-container {
+  background-color: white;
+  width: 50vh;
+}
+.search-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.result-info {
+  display: flex;
+  border: 1px solid;
+  justify-content: space-around;
+  justify-items: center;
+  width: 100%;
+}
+.result-info img {
+  width: 3rem;
+}
