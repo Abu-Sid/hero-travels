@@ -11,7 +11,6 @@ import Home from "./components/Home/Home";
 import NoMatch from "./components/NoMatch/NoMatch";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import SignIn from "./components/SignIn/SignIn";
-import SignUp from "./components/SignUp/SignUp";
 export const UserContext=createContext()
 function App() {
    const [loggedInUser, setLoggedInUser] = useState({})
@@ -26,9 +25,6 @@ function App() {
         </Route>
         <Route path='/signin'>
           <SignIn/>
-        </Route>
-        <Route path='/signup'>
-        <SignUp/>
         </Route>
           <PrivateRoute path="/booking/:id">
             <Booking/>
