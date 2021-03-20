@@ -1,3 +1,7 @@
+## for examiner
+
+tried deploy in firebase and netlify but failed.
+
 # react-fire-auth-Abu-Sid
 
 ## React fire Auth Assignment
@@ -7,5 +11,3 @@ For make sit responsive had used css grid, flex, react-bootstrap. for icon used 
 I have deployed this project via firebase.
 
 ### Live Site
-
-[https://romantic-franklin-ed40a7.netlify.app/](https://romantic-franklin-ed40a7.netlify.app/)
