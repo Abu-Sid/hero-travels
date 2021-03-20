@@ -4,7 +4,7 @@
 .form-area {
   border-radius: 10px !important;
   background-color: rgba(255, 255, 255, 0.295);
-  font-weight: 700;
+  font-weight: 900;
   padding: 2rem;
   margin-top: 8rem;
 }
@@ -26,4 +26,22 @@
 }
 .result-info img {
   width: 3rem;
+}
+.result-info h3 {
+  margin-left: 2rem !important;
+}
+.map-area {
+  width: 30rem;
+  margin-top: 7rem;
+  margin-left: 7rem;
+}
+@media (max-width: 600px) {
+  .map-area {
+    position: absolute;
+    right: 0rem;
+    top: 33rem;
+    width: 30rem;
+    margin-top: 7rem;
+    margin-left: 7rem;
+  }
 }

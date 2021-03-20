@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { BiMap, BiMapPin } from "react-icons/bi";
-import { BsPeopleFill } from "react-icons/bs";
+import { BiMap, BiMapPin } from 'react-icons/bi';
+import { FaUserFriends } from 'react-icons/fa';
 import { useParams } from 'react-router';
 import fakedata from '../Fakedata/Fakedata.json';
+import Map from '../GoogleMap/GoogleMap';
 import './Booking.css';
 const Booking = () => {
     const [place, setPlace] = useState({
@@ -12,19 +13,23 @@ const Booking = () => {
     })
     const [result,setResult]=useState(false)
     const {id}=useParams()
-
+    console.log(id);
     const handleBlur=(e)=>{
         setPlace({...place,[e.target.name]: e.target.value });
         console.log(place);
     }
-    // const [datas, setDatas] = useState([])
-    // useEffect(()=>{
-    //     const data=fakedata
-    //     setDatas(data)
-    // },[])
-     const datas=fakedata
-    const dataDetails=datas.filter(dt=>dt.id==id)
-    const {name,image,capacity,price}=dataDetails[0];
+    const datas=fakedata
+    const [value, setValue] = useState({
+        name:'',
+        image:'',
+        capacity:'',
+        price:''
+    })
+    useEffect(()=>{
+        const dataDetails=datas.filter(dt=>(dt.id==id))
+        const {name,image,capacity,price}=dataDetails[0];
+        setValue({name,image,capacity,price});
+    },[id])
     
     return (
         <div> 
@@ -57,48 +62,33 @@ const Booking = () => {
                         </Form>
                     </Col>
                     :<Col className='form-area'>
-                        <Form className='search-info'>
-                            <Form.Group as={Row} controlId="formPlaintextEmail">
-                            <Form.Label column sm="2">
-                            <BiMap/>
-                                </Form.Label>
-                                <Col >
-                                <Form.Control plaintext readOnly defaultValue={place.origin} />
-                                </Col>
-                            </Form.Group>
-                            <Form.Group as={Row} controlId="formPlaintextEmail">
-                            <Form.Label column sm="2">
-                            <BiMapPin/>
-                                </Form.Label>
-                                <Col >
-                                <Form.Control plaintext readOnly defaultValue={place.dest} />
-                                </Col>
-                            </Form.Group>
+                        <div>
+                            <h1><BiMap/>{place.origin}</h1>
+                            <h1><BiMapPin/>{place.dest}</h1>
+                        </div>
                         
-                            </Form>
                         <div className='result-info'>
-                            <img src={image} alt=""/>
-                            <h3>{name}</h3>
-                            <h3>{capacity}</h3>
-                            <h3>${price}</h3>
+                            <img src={value.image} alt=""/>
+                            <h3>{value.name}</h3>
+                            <h3 style={{display:'flex'}} ><FaUserFriends/>{value.capacity}</h3>
+                            <h3>${value.price}</h3>
                         </div>
                         <div className='result-info'>
-                            <img src={image} alt=""/>
-                            <h3>{name}</h3>
-                            <h3>{capacity}</h3>
-                            <h3>${price}</h3>
+                            <img src={value.image} alt=""/>
+                            <h3>{value.name}</h3>
+                            <h3 style={{display:'flex'}} ><FaUserFriends/>{value.capacity}</h3>
+                            <h3>${value.price}</h3>
                         </div>
                         <div className='result-info'>
-                            <img src={image} alt=""/>
-                            <h3>{name}</h3>
-                            <h3><BsPeopleFill/>{capacity}</h3>
-                            <h3>${price}</h3>
+                            <img src={value.image} alt=""/>
+                            <h3>{value.name}</h3>
+                            <h3 style={{display:'flex'}} ><FaUserFriends/>{value.capacity}</h3>
+                            <h3>${value.price}</h3>
                         </div>
                     </Col>
                     }
-
-                    <Col>
-                        <h1>Google Map</h1>
+                    <Col className='map-area'>
+                        <Map/>
                     </Col>
                 </Row>
             </Container>
